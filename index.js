@@ -21,7 +21,6 @@ app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 app.use('/note', noteRouter)
 
-var server = app.listen(process.env.PORT || 3000, function() {
-  var port = server.address().port;
-  console.log("Express is working on port" + port)
-})
+app.listen(port,()=>{  
+  console.log("server listening to port "+port);
+});
