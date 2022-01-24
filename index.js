@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const db = require('./src/config/db')
 const path = require('path')
-// const cors = require('cors');
+const cors = require('cors');
 require('dotenv/config');
 
 
@@ -12,8 +12,8 @@ const noteRouter = require('./src/router/note.router')
 //connect to db
 db.connectDB()
 
-// app.use(cors());
-// app.options('*', cors())
+app.use(cors());
+app.options('*', cors())
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({
